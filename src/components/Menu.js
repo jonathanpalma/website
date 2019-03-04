@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
 import FontAwesome from 'react-fontawesome';
 
 class Menu extends PureComponent {
