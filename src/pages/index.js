@@ -9,9 +9,9 @@ const App = () => (
   <Fragment>
     <SiteMetadata />
     <div className="content">
-      <h1 className="title">JONATHAN PALMA</h1>
-      <h3 className="subtitle">FULL STACK DEVELOPER</h3>
-      <span>----</span>
+      <h1 className="title">Jonathan Palma</h1>
+      <h3 className="subtitle">Full Stack Developer</h3>
+      <span className="separator" />
       <p>
         Hi! I am Jonathan, a full stack developer with over 5 years of
         {' '}
@@ -25,16 +25,24 @@ const App = () => (
         {' '}
         I find happiness in dancing, surfing, coding and looking for new challenges.
       </p>
-      <ul id="control-box">
+      <ul className="bar-menu">
         <li>
-          <a href="https://github.com/jonathanpalma" target="_blank">
+          <a
+            href="https://github.com/jonathanpalma"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <FontAwesome name="github" />
             {' '}
             Github
           </a>
         </li>
         <li>
-          <a href="https://linkedin.com/in/jonathan-palma-8a2a0490" target="_blank">
+          <a
+            href="https://linkedin.com/in/jonathan-palma-8a2a0490"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <FontAwesome name="linkedin" />
             {' '}
             Linkedin
