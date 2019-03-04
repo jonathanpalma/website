@@ -20,14 +20,14 @@
   box-sizing: border-box;
 }
 
-html
-{
+html {
   font-family: Montserrat;
   color: white;
+  height: 100%;
 }
 
-html {
-  height: 100%;
+html, body {
+  background-color: #060a49;
 }
 
 body {
