@@ -18,7 +18,7 @@ class Menu extends PureComponent {
           React.cloneElement(childElement)
         ))}
       </ul>
-    )
+    );
   }
 }
 

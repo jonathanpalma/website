@@ -10,6 +10,7 @@ const SiteMetadata = () => (
     <meta name="keywords" content="React,Redux,Javascript,RESTful,Fullstack,Developer,ES6" />
     <meta name="author" content="Jonathan Palma" />
     <meta property="og:site_name" content="Jonathan Palma - Full Stack Developer" />
+    <meta name="theme-color" content="#0d0f3a" />
     <title>Full Stack Developer</title>
   </Helmet>
 );

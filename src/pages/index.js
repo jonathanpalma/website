@@ -17,7 +17,7 @@ const App = () => (
         {' '}
         experience based in El Salvador, Central America. I have worked
         {' '}
-        for startups, mid-size and multinational companies, and collaborated
+        for startups, mid-sized and multinational companies, and collaborated
         {' '}
         with talented people to create digital products for both business and
         {' '}
