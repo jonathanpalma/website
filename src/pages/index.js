@@ -32,9 +32,14 @@ const App = () => (
           url="https://linkedin.com/in/jonathan-palma-8a2a0490"
         />
         <Menu.Option
-          download={true}
-          icon="download"
-          label="Download CV"
+          icon="envelope"
+          label="Contact"
+          target="_top"
+          url="mailto:tanpalma04@gmail.com"
+        />
+        <Menu.Option
+          icon="file-text"
+          label="Resume"
           url="#"
         />
       </Menu>
