@@ -10,7 +10,7 @@ const App = () => (
     <SiteMetadata />
     <div className="content">
       <h1 className="title">Jonathan Palma</h1>
-      <h3 className="subtitle">Full Stack Developer</h3>
+      <h2 className="subtitle">Full Stack Developer</h2>
       <span className="separator" />
       <p>
         Hi! I am Jonathan, a full stack developer with over 5 years of
