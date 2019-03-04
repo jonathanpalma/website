@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import SiteMetadata from 'components/SiteMetadata';
-import FontAwesome from 'react-fontawesome';
+import Menu from 'components/Menu';
 
 import 'css/index.css';
 import 'css/font-awesome.min.css';
@@ -25,37 +25,24 @@ const App = () => (
         {' '}
         I find happiness in dancing, surfing, coding and looking for new challenges.
       </p>
-      <ul className="bar-menu">
-        <li>
-          <a
-            href="https://github.com/jonathanpalma"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <FontAwesome name="github" />
-            {' '}
-            Github
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://linkedin.com/in/jonathan-palma-8a2a0490"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <FontAwesome name="linkedin" />
-            {' '}
-            Linkedin
-          </a>
-        </li>
-        <li>
-          <a href="#" download>
-            <FontAwesome name="download" />
-            {' '}
-            Download CV
-          </a>
-        </li>
-      </ul>
+      <Menu>
+        <Menu.Option
+          icon="github"
+          label="Github"
+          url="https://github.com/jonathanpalma"
+        />
+        <Menu.Option
+          icon="linkedin"
+          label="Linkedin"
+          url="https://linkedin.com/in/jonathan-palma-8a2a0490"
+        />
+        <Menu.Option
+          download={true}
+          icon="download"
+          label="Download CV"
+          url="#"
+        />
+      </Menu>
     </div>
   </Fragment>
 );
