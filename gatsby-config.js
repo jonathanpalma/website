@@ -1,7 +1,9 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
-    title: 'My Blog',
-    description: 'This is my cool blog.'
+    title: 'Full Stack Developer',
+    description: `Full stack & mobile developer using React / React Native, Redux, NodeJS, Bootstrap. Jonathan Palma's personal website.`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,6 +13,14 @@ module.exports = {
       options: {
         name: `pages`,
         path: `${__dirname}/src/pages`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-root-import`,
+      options: {
+        assets: path.join(__dirname, 'src/assets'),
+        components: path.join(__dirname, 'src/components'),
+        pages: path.join(__dirname, 'src/pages')
       }
     }
   ]
