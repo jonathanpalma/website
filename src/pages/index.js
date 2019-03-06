@@ -8,7 +8,7 @@ import 'css/font-awesome.min.css';
 const App = () => (
   <Fragment>
     <SiteMetadata />
-    <div className="content">
+    <div className="content animated fadeIn">
       <h1 className="title">Jonathan <span className="last-name">Palma</span></h1>
       <h2 className="subtitle">Full Stack Developer</h2>
       <span className="separator" />
