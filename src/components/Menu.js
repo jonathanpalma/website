@@ -14,9 +14,9 @@ class Menu extends PureComponent {
   render() {
     return (
       <ul className="bar-menu">
-        {React.Children.map(this.props.children, childElement => (
+        {React.Children.map(this.props.children, childElement =>
           React.cloneElement(childElement)
-        ))}
+        )}
       </ul>
     );
   }
