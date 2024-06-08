@@ -1,41 +1,32 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { Button, Container, Typography } from "~/components/ui";
+
+export const links: LinksFunction = () => {
+  return [{ rel: "canonical", href: "https://jonathanpalma.dev" }];
+};
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Jonathan's Website | Software Engineer" },
+    {
+      name: "description",
+      content:
+        "Jonathan is a full stack software engineer with experience in SaaS and distributed applications. Explore his projects and expertise.",
+    },
+    { name: "robots", content: "index, follow" },
   ];
 };
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/start/quickstart"
-            rel="noreferrer"
-          >
-            5m Quick Start
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/start/tutorial"
-            rel="noreferrer"
-          >
-            30m Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+    <Container>
+      <Typography variant="h1" as="h1">
+        Jonathan Palma
+      </Typography>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="soft">Soft</Button>
+      <Button variant="clear">Clear</Button>
+    </Container>
   );
 }
