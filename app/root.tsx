@@ -9,11 +9,14 @@ import {
   useRouteLoaderData,
 } from "@remix-run/react";
 import tailwindStyleSheetUrl from "~/tailwind.css?url";
+import tailwindConfig from "../tailwind.config";
+import { useTheme } from "./routes/resources+/theme-switch";
 import { ClientHintCheck, getHints } from "./utils/client-hints";
+import { getEnv } from "./utils/env.server";
 import { getDomainUrl } from "./utils/misc";
 import { getTheme } from "./utils/theme.server";
-import { getEnv } from "./utils/env.server";
-import { useTheme } from "./routes/resources+/theme-switch";
+
+const neutralColor = tailwindConfig.theme.extend.colors.neutral;
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: tailwindStyleSheetUrl },
@@ -43,9 +46,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="theme-color"
+          content={theme === "dark" ? neutralColor[950] : neutralColor[50]}
+        />
         <Links />
       </head>
-      <body>
+      <body className="h-full">
         {children}
         <script
           // TODO: add nonce

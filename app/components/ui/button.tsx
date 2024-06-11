@@ -8,10 +8,10 @@ const buttonVariants = cva("font-semibold inline-flex items-center gap-x-1.5", {
       primary:
         "bg-secondary-600 shadow-sm text-neutral-100 hover:bg-secondary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-700",
       secondary:
-        "bg-neutral-100 shadow-sm dark:bg-neutral-100/20 dark:hover:bg-neutral-100/30 text-neutral-900 ring-1 ring-inset ring-neutral-500 hover:bg-neutral-300",
+        "bg-neutral-100 shadow-sm dark:bg-neutral-100/20 dark:text-neutral-100 dark:hover:bg-neutral-100/30 text-neutral-900 ring-1 ring-inset ring-neutral-500 hover:bg-neutral-300",
       soft: "bg-secondary-100 shadow-sm text-secondary-600 hover:bg-secondary-200",
       clear:
-        "bg-transparent text-neutral-900 shadow-none hover:bg-neutral-200 hover:shadow-sm",
+        "bg-transparent text-neutral-900 dark:text-neutral-50 dark:hover:bg-neutral-700 shadow-none hover:bg-neutral-200 hover:shadow-sm",
     },
     size: {
       xs: "rounded px-2 py-1 text-xs",

@@ -1,7 +1,7 @@
 import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
-const typographyVariants = cva('', {
+const typographyVariants = cva("text-neutral-950 dark:text-neutral-50", {
   variants: {
     variant: {
       "body-xs": "text-2xs sm:text-xs",
