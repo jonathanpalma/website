@@ -1,6 +1,6 @@
 import { useRouteLoaderData } from "@remix-run/react";
 import { loader as rootLoader } from "~/root";
-import { invariant } from "./invariant.server";
+import { invariant } from "./invariant";
 
 /**
  * @returns the request info from the root loader

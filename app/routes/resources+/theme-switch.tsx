@@ -1,15 +1,14 @@
 import { getFormProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import {
-  ComputerDesktopIcon,
-  MoonIcon,
-  SunIcon,
-} from "@heroicons/react/24/solid";
+import ComputerDesktopIcon from "@heroicons/react/24/solid/ComputerDesktopIcon";
+import MoonIcon from "@heroicons/react/24/solid/MoonIcon";
+import SunIcon from "@heroicons/react/24/solid/SunIcon";
 import { json, type ActionFunctionArgs } from "@remix-run/node";
 import { useFetcher, useFetchers } from "@remix-run/react";
 import { z } from "zod";
+import { Button } from "~/components/ui";
 import { useHints } from "~/utils/client-hints";
-import { invariantResponse } from "~/utils/invariant.server";
+import { invariantResponse } from "~/utils/invariant";
 import { useRequestInfo } from "~/utils/request-info";
 import { setTheme, type Theme } from "~/utils/theme.server";
 
@@ -51,17 +50,17 @@ export function ThemeSwitch({
     mode === "system" ? "light" : mode === "light" ? "dark" : "system";
   const modeLabel = {
     light: (
-      <SunIcon>
+      <SunIcon className="h-6 w-6" aria-hidden="true">
         <span className="sr-only">Light</span>
       </SunIcon>
     ),
     dark: (
-      <MoonIcon>
+      <MoonIcon className="h-6 w-6" aria-hidden="true">
         <span className="sr-only">Dark</span>
       </MoonIcon>
     ),
     system: (
-      <ComputerDesktopIcon>
+      <ComputerDesktopIcon className="h-6 w-6" aria-hidden="true">
         <span className="sr-only">System</span>
       </ComputerDesktopIcon>
     ),
@@ -75,12 +74,13 @@ export function ThemeSwitch({
     >
       <input type="hidden" name="theme" value={nextMode} />
       <div className="flex gap-2">
-        <button
+        <Button
           type="submit"
-          className="flex h-8 w-8 cursor-pointer items-center justify-center"
+          className="flex items-center justify-center"
+          variant="soft"
         >
           {modeLabel[mode]}
-        </button>
+        </Button>
       </div>
     </fetcher.Form>
   );
