@@ -96,6 +96,7 @@ export default {
           800: "#c62828",
           900: "#b71c1c",
         },
+        white: "#ffffff",
       },
       fontSize: {
         "2xs": ["0.625rem", "1.5em"],

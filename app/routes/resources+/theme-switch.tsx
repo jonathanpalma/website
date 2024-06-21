@@ -32,11 +32,11 @@ export async function action({ request }: ActionFunctionArgs) {
   return json({ result: submission.reply() }, responseInit);
 }
 
-export function ThemeSwitch({
-  userPreference,
-}: {
+export type ThemeSwitchProps = {
   userPreference?: Theme | null;
-}) {
+};
+
+export function ThemeSwitch({ userPreference }: ThemeSwitchProps) {
   const fetcher = useFetcher<typeof action>();
 
   const [form] = useForm({

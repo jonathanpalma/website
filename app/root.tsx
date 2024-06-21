@@ -52,7 +52,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
         <Links />
       </head>
-      <body className="h-full">
+      <body className="h-full w-full bg-neutral-100 dark:bg-neutral-900">
         {children}
         <script
           // TODO: add nonce
@@ -60,7 +60,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             __html: `window.ENV = ${JSON.stringify(data?.ENV)}`,
           }}
         />
-        <ScrollRestoration />
+        <ScrollRestoration getKey={(location) => location.pathname} />
         <Scripts />
       </body>
     </html>

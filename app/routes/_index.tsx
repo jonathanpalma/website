@@ -1,8 +1,9 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Button, Container, Typography } from "~/components/ui";
-import { ThemeSwitch } from "./resources+/theme-switch";
 import { useRouteLoaderData } from "@remix-run/react";
+import { Header } from "~/components/layout";
+import { Button, Container, Typography } from "~/components/ui";
 import { loader as rootLoader } from "~/root";
+import { routes } from "~/utils/constants";
 
 export const meta: MetaFunction = () => [
   { title: "Jonathan's Website | Software Engineer" },
@@ -22,17 +23,20 @@ export const meta: MetaFunction = () => [
 export default function Index() {
   const data = useRouteLoaderData<typeof rootLoader>("root");
   return (
-    <div className="flex h-full w-full flex-1 bg-neutral-100 dark:bg-neutral-900">
-      <Container>
-        <ThemeSwitch userPreference={data?.requestInfo.userPrefs.theme} />
-        <Typography variant="h1" as="h1">
-          Jonathan Palma
-        </Typography>
-        <Button variant="primary">Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="soft">Soft</Button>
-        <Button variant="clear">Clear</Button>
-      </Container>
-    </div>
+    <>
+      <Header routes={routes} theme={data?.requestInfo.userPrefs.theme} />
+
+      <div className="h-[5000px] w-full">
+        <Container>
+          <Typography variant="h1" as="h1">
+            Jonathan Palma
+          </Typography>
+          <Button variant="primary">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="soft">Soft</Button>
+          <Button variant="clear">Clear</Button>
+        </Container>
+      </div>
+    </>
   );
 }
