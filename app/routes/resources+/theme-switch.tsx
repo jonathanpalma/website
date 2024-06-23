@@ -33,10 +33,10 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export type ThemeSwitchProps = {
-  userPreference?: Theme | null;
+  currentTheme?: Theme | null;
 };
 
-export function ThemeSwitch({ userPreference }: ThemeSwitchProps) {
+export function ThemeSwitch({ currentTheme }: ThemeSwitchProps) {
   const fetcher = useFetcher<typeof action>();
 
   const [form] = useForm({
@@ -45,7 +45,7 @@ export function ThemeSwitch({ userPreference }: ThemeSwitchProps) {
   });
 
   const optimisticMode = useOptimisticThemeMode();
-  const mode = optimisticMode ?? userPreference ?? "system";
+  const mode = optimisticMode ?? currentTheme ?? "system";
   const nextMode =
     mode === "system" ? "light" : mode === "light" ? "dark" : "system";
   const modeLabel = {

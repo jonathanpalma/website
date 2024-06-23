@@ -10,8 +10,10 @@ import {
 } from "@remix-run/react";
 import tailwindStyleSheetUrl from "~/tailwind.css?url";
 import tailwindConfig from "../tailwind.config";
+import { Footer, Header } from "./components/layout";
 import { useTheme } from "./routes/resources+/theme-switch";
 import { ClientHintCheck, getHints } from "./utils/client-hints";
+import { routes, socialRoutes } from "./utils/constants";
 import { getEnv } from "./utils/env.server";
 import { getDomainUrl } from "./utils/misc";
 import { getTheme } from "./utils/theme.server";
@@ -52,8 +54,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
         <Links />
       </head>
-      <body className="h-full w-full bg-neutral-100 dark:bg-neutral-900">
-        {children}
+      <body className="flex h-full w-full flex-col bg-neutral-100 dark:bg-neutral-900">
+        {/* The Layout is defined here to avoid duplicating the app shell
+          across the root component, HydrateFallback, and ErrorBoundary */}
+        <Header routes={routes} theme={data?.requestInfo.userPrefs.theme} />
+        <main className="flex-1">{children}</main>
+        <Footer routes={routes} socialRoutes={socialRoutes} />
+
         <script
           // TODO: add nonce
           dangerouslySetInnerHTML={{

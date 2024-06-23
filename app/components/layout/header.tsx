@@ -9,7 +9,7 @@ import { clamp } from "~/utils/misc";
 import { Navigation, type NavigationProps } from "./navigation";
 
 type HeaderProps = NavigationProps & {
-  theme: ThemeSwitchProps["userPreference"];
+  theme: ThemeSwitchProps["currentTheme"];
 };
 
 export function Header({ routes, theme }: HeaderProps) {
@@ -194,7 +194,7 @@ export function Header({ routes, theme }: HeaderProps) {
               </div>
               <div className="flex justify-end md:flex-1">
                 <div className="pointer-events-auto">
-                  <ThemeSwitch userPreference={theme} />
+                  <ThemeSwitch currentTheme={theme} />
                 </div>
               </div>
             </div>

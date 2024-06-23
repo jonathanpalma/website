@@ -10,11 +10,8 @@ import ChevronDownIcon from "@heroicons/react/24/solid/ChevronDownIcon";
 import XMarkIcon from "@heroicons/react/24/solid/XMarkIcon";
 import { Link, NavLink } from "@remix-run/react";
 import clsx from "clsx";
+import { Route } from "~/types";
 
-export type Route = {
-  name: string;
-  href: string;
-};
 type NavItemProps = {
   href: string;
   children: React.ReactNode;
