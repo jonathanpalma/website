@@ -50,6 +50,9 @@ importers:
       express:
         specifier: ^4.19.2
         version: 4.19.2
+      express-rate-limit:
+        specifier: ^7.3.1
+        version: 7.3.1(express@4.19.2)
       isbot:
         specifier: ^4.1.0
         version: 4.4.0
@@ -2328,6 +2331,12 @@ packages:
   exit-hook@2.2.1:
     resolution: {integrity: sha512-eNTPlAD67BmP31LDINZ3U7HSF8l57TxOY2PmBJ1shpCvpnxBF93mWCE8YHBnXs8qiUZJc9WDcWIeC3a2HIAMfw==}
     engines: {node: '>=6'}
+
+  express-rate-limit@7.3.1:
+    resolution: {integrity: sha512-BbaryvkY4wEgDqLgD18/NSy2lDO2jTuT9Y8c1Mpx0X63Yz0sYd5zN6KPe7UvpuSVvV33T6RaE1o1IVZQjHMYgw==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      express: 4 || 5 || ^5.0.0-beta.1
 
   express@4.19.2:
     resolution: {integrity: sha512-5T6nhjsT+EOMzuck8JjBHARTHfMht0POzlA60WV2pMD3gyXw2LZnZ+ueGdNxG+0calOJcWKbpFcuzLZ91YWq9Q==}
@@ -6873,6 +6882,10 @@ snapshots:
       strip-final-newline: 2.0.0
 
   exit-hook@2.2.1: {}
+
+  express-rate-limit@7.3.1(express@4.19.2):
+    dependencies:
+      express: 4.19.2
 
   express@4.19.2:
     dependencies:

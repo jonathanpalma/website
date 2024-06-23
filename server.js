@@ -1,6 +1,7 @@
 import { createRequestHandler } from "@remix-run/express";
 import compression from "compression";
 import express from "express";
+import rateLimit from 'express-rate-limit';
 import morgan from "morgan";
 
 const viteDevServer = process.env.NODE_ENV === "production"
@@ -40,6 +41,39 @@ if (viteDevServer) {
 app.use(express.static("build/client", { maxAge: "1h" }));
 
 app.use(morgan("tiny"));
+
+// Rate limiting
+const limitMultiple = process.env.NODE_ENV === "test" ? 10000 : 1;
+const rateLimitDefault = {
+  windowMs: 60 * 1000, // 1 minute
+  limit: 1000 * limitMultiple, // limit each IP to 1000 * limitMultiple requests per windowMs
+  standardHeaders: true,
+  legacyHeaders: false,
+}
+
+const strongestRateLimit = rateLimit({
+  ...rateLimitDefault,
+  limit: 10 * limitMultiple,
+})
+
+const strongRateLimit = rateLimit({
+  ...rateLimitDefault,
+  limit: 100 * limitMultiple,
+})
+
+const generalRateLimit = rateLimit(rateLimitDefault)
+
+app.use((req, res, next) => {
+  const strongPaths = ['/contact']
+  if (req.method !== 'GET' && req.method !== 'HEAD') {
+    if (strongPaths.some(p => req.path.includes(p))) {
+      return strongestRateLimit(req, res, next)
+    }
+    return strongRateLimit(req, res, next)
+  }
+
+  return generalRateLimit(req, res, next)
+});
 
 // handle SSR requests
 app.all("*", remixHandler);
